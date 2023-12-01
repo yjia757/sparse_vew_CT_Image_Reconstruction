@@ -1,0 +1,58 @@
+Implementation of SART and LEARN algorythmns for the trainning of the regularization. 
+
+The algorithmns are based on the examples as described in the PYRON-NN git(https://github.com/pgmoka/PYRO-NN).
+The paper is available in the "PYRO-NN" file.
+
+- SynoGenerator use:
+
+
+User can call the class, and give it specifications.
+Required:
+--in : file with image to be read
+--out : dir to output sinogram
+
+Others:
+--dx : pixel size (cm)
+--volume_size_definition : The volume size in Z, Y, X order
+--volume_spacing_definition : Define space between volume spaces
+--angular_range_definition : Range of rotation of scan
+--detector_shape_definition : Define space of volume 
+--fan_angle : Angle of fan
+--det_spacing_definition : Define space between detector spaces
+--number_of_project : Define number of projections
+--geom : geometry (parallel, or fanflat (cone not supported))
+--source_detector_distance : Define the distance of the detector
+--source_isocenter_distance : Distance of Isoceles
+--counts : count rate (to determine noise)
+
+
+- Reconstructor use:
+
+Used to start execution of agorythmn, querrying info from user.
+
+Commands include the ones above, and:
+--lr : initial learning rate for adam
+--epoch : # of epoch
+--strat : image evaluation strategy (SART or LEARN)
+--sinos : specify ONE for single image processing, ALL for sinogram construction
+
+        # Ex 1.:
+python SynoGenerator.py  --in imgs/00000002_img.flt --out sinos --geom fanflat --angular_range_definition 360 --source_detector_distance 1600 --source_isocenter_distance 800 --dx 0.065
+
+python Reconstructor.py --in sinos/00000002_sino.flt --out recons --geom fanflat --angularRangeDef 360 --source_detector_distance 1600 --source_isocenter_distance 800 --dx 0.065
+
+
+        # Ex 2.:
+python SynoGenerator.py  --in imgs/00000001_img.flt --out sinos --geom fanflat --angular_range_definition 360 --source_detector_distance 2000 --source_isocenter_distance 500 --dx 0.065
+
+
+python Reconstructor.py --in sinos/00000001_sino.flt --out recons --geom fanflat --angular_range_definition 360 --source_detector_distance 2000 --source_isocenter_distance 500 --dx 0.065
+
+Example of execution for SART.py (pyro version): 
+
+python SynoGenerator.py  --in imgs/00000001_img.flt --out sinos --angular_range_definition 180  --source_detector_distance 2000 --source_isocenter_distance 500 --dx 0.065
+
+python Reconstructor.py --in sinos/00000001_sino.flt --out recons --angular_range_definition 180  --source_detector_distance 2000 --source_isocenter_distance 500 --dx 0.065 --numits 40
+
+
+

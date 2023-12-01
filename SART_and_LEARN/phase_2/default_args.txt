@@ -1,0 +1,40 @@
+[arguments]
+epoch                         = 50                  help = # of epoch 
+batch_size                    = 128                 help = # images in batch 
+lr_start                      = 0.001               help = initial learning rate for adam    
+lr_end                        = 0.00001             help = final learning rate for adam    
+use_gpu                       = 1                   help = gpu flag, 1 for GPU and 0 for CPU 
+phase                         = 'train'             help = train or test  
+ckpt_dir                      = './checkpoint'      help = models are saved here         
+sample_dir                    = './sample'          help = sample are saved here        
+ndct_eval_set                 = '.'                 help = ndct dataset for eval in training 
+svct_eval_set                 = '.'                 help = svct dataset for eval in training 
+ndct_test_set                 = '.'                 help = ndct dataset for testing 
+svct_test_set                 = '.'                 help = svct dataset for testing 
+test_dir                      = './test'            help = test sample are saved here    
+ndct_training_data            = '.'                 help = ndct dataset for training 
+svct_training_data            = '.'                 help = svct dataset for training 
+infile                        = '.'                 help = input file -- directory or single file 
+outfile                       = '.'                 help = output directory 
+dx                            = 1                   help = pixel size (cm) 
+volume_size                   = 512                 help = The volume size in Z, Y, X order 
+volume_spacing                = 1                   help = Define space between volume spaces (actual variable format: [x,x]) 
+angular_range                 = 180                 help = Range of rotation of scan 
+detector_shape                = 729                 help = Define space of volume 
+fan_angle                     = 35.0                help = Angle of fan  
+detector_spacing              = 1.0                 help = Define space between detector spaces 
+project_number                = 900                 help = Define number of projections 
+geom                          = 'parallel'          help = geometry (parallel, or fanflat (cone not supported))          
+source_detector_distance      = 1200                help = Define the distance of the detector") #DSO+DOD    
+source_isocenter_distance     = 750                 help = Distance of Isoceles 
+strategy_type                 = 'SART'              help = image evaluation strategy    
+which_sinos                   = 'ONE'               help = specify ONE for single image processing, ALL for  sinogram construction   
+num_its                       = 32                  help = maximum number of iterations 
+beta                          = 1                   help = relaxation parameter beta 
+x0_file                       = ''                  help = initial image (default: zeros) 
+xtrue_file                    = ''                  help = true image (if available) 
+sup_params                    = 3                   help = superiorization parameters gamma, N, alpha_init 
+ns                            = 1                   help = number of subsets. must divide evenly into number of angles 
+
+
+

@@ -1,0 +1,3 @@
+- phase_1 contains work done in the set-up of the initial PYRO-NN implementation
+- phase_2 contains LEARN with 3Layer-CNN
+- phase_3 contains LEARN and SART with 3Layer-CNN and Unet
